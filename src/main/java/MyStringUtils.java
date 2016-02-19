@@ -4,8 +4,13 @@
 public class MyStringUtils {
 
     public static String combineStringArray(String[] x){
-
-        return "";
+        String returnString = "";
+        for(String y : x){
+           returnString = returnString.concat(y);
+           returnString = returnString.concat(",");
+        }
+        returnString = returnString.substring(0,returnString.length()-1);
+        return returnString;
     }
 
     public static String[] splitStringByNewLine(String x){
