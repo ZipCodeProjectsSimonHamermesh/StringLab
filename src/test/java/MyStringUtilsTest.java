@@ -27,7 +27,7 @@ public class MyStringUtilsTest {
 
     @Test
     public void testMyStringUtils_reverseStringWords(){
-       assertTrue("gfedcba".equals(MyStringUtils.reverseStringWords("abcdefg")));
+       assertTrue("tac god hsif".equals(MyStringUtils.reverseStringWords("cat dog fish")));
     }
 
     @Test

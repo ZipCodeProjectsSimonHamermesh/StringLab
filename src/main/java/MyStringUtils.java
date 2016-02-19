@@ -34,13 +34,26 @@ public class MyStringUtils {
                 resultCharArray[i] = (Character.toUpperCase(c));
             }
         }
-        
+
         return new String(resultCharArray);
     }
 
     public static String reverseStringWords(String x){
 
-        return "";
+       String[] stringsToReverse = x.split(" ");
+       String resultString = "";
+
+       for(String s : stringsToReverse){
+           StringBuilder stringBuilder = new StringBuilder();
+           stringBuilder.append(s);
+           stringBuilder = stringBuilder.reverse();
+           stringBuilder.append(" ");
+
+           resultString = resultString.concat(stringBuilder.toString());
+       }
+        resultString = resultString.trim();
+        System.out.println(resultString);
+        return resultString;
     }
 
     public static String removeWhitespaceNewLines(String x){
