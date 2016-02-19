@@ -14,9 +14,8 @@ public class MyStringUtils {
     }
 
     public static String[] splitStringByNewLine(String x){
-        String[] returnStringArrray = new String[]{};
 
-        return returnStringArrray;
+        return x.split("\n");
     }
 
     public static String reverseCapitalizeString(String x){
