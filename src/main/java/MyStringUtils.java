@@ -1,3 +1,5 @@
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 /**
  * Created by simonhamermesh on 2/19/16.
  */
@@ -20,7 +22,20 @@ public class MyStringUtils {
 
     public static String reverseCapitalizeString(String x){
 
-        return "";
+        char[] charArray = x.toCharArray();
+        char[] resultCharArray = new char[charArray.length];
+
+        for(int i = 0; i<charArray.length;i++){
+            char c = charArray[i];
+            if(Character.isUpperCase(c)){
+                resultCharArray[i] = (Character.toLowerCase(c));
+            }
+            if(!(Character.isUpperCase(c))){
+                resultCharArray[i] = (Character.toUpperCase(c));
+            }
+        }
+        
+        return new String(resultCharArray);
     }
 
     public static String reverseStringWords(String x){
