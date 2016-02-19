@@ -57,8 +57,17 @@ public class MyStringUtils {
     }
 
     public static String removeWhitespaceNewLines(String x){
+        String[] toRemoveWhiteSpaceNewLine = x.split(" ");
+        String resultString = "";
 
-        return "";
+        for(String y : toRemoveWhiteSpaceNewLine){
+            if(!(y.length() == 0)){
+            resultString = resultString.concat(y);
+            resultString = resultString.concat("\n");
+            }
+        }
+        resultString = resultString.substring(0, resultString.length()-1);
+        return resultString;
     }
 
     public static String[] returnAllSubstrings(String x){
