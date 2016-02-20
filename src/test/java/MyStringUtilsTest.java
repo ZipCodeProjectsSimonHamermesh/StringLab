@@ -37,10 +37,15 @@ public class MyStringUtilsTest {
 
     @Test
     public void testMyStringUtils_returnAllSubstrings(){
-        assertTrue(MyStringUtils.returnAllSubstrings("a b c").length == 6);
 
-        String[] result = new String[]{"a","b","c","ab","bc","abc"};
-        assertTrue(Arrays.equals(MyStringUtils.returnAllSubstrings("a b c"),result));
+        assertTrue(MyStringUtils.returnAllSubstrings("cat").length == 6);
+        String[] result = new String[]{"c","a","t","ca","at","cat"};
+        assertTrue(Arrays.equals(MyStringUtils.returnAllSubstrings("cat"),result));
+
+        assertTrue(MyStringUtils.returnAllSubstrings("     ").length == 15);
+        result = new String[]{"a","b","c","d","e","ab","bc","cd","de","abc","bcd","cde","abcd","bcde","abcde"};
+        assertTrue(Arrays.equals(MyStringUtils.returnAllSubstrings("abcde"),result));
+
     }
 
 }

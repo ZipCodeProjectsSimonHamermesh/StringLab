@@ -52,7 +52,6 @@ public class MyStringUtils {
            resultString = resultString.concat(stringBuilder.toString());
        }
         resultString = resultString.trim();
-        System.out.println(resultString);
         return resultString;
     }
 
@@ -71,9 +70,22 @@ public class MyStringUtils {
     }
 
     public static String[] returnAllSubstrings(String x){
-        String[] returnStringArrray = new String[]{};
 
-        return returnStringArrray;
+        int charCount = x.length();
+        String[] returnStringArray;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(int i = 0; i < charCount; i++) {
+
+            for (int j = 0; j < charCount - i; j++) {
+                stringBuilder.append(x.substring(j, j + i + 1)).append(",");
+            }
+
+        }
+
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        returnStringArray = stringBuilder.toString().split(",");
+        return returnStringArray;
     }
 
 }
