@@ -48,4 +48,29 @@ public class MyStringUtilsTest {
 
     }
 
+    @Test
+    public void testMyStringUtils_stringTrimmer(){
+        String[] inputString = new String[]{"12345678902234556789032345678904234578905234567890623456789072345678908234567890EIGHTY",
+                "THIS SENTENCE WILL HAVE FEWER THAN EIGHTY CHARACTERS"};
+
+        assertTrue(MyStringUtils.stringTrimmer(inputString[0],80).length() <= 80);
+        assertTrue(MyStringUtils.stringTrimmer(inputString[1],80).length() <= 80);
+    }
+
+    @Test
+    public void testMyStringUtils_formattedString(){
+
+        String[] inputString = new String[]{"12345678902234556789032345678904234578905234567890623456789072345678908234567890EIGHTY",
+                "THIS SENTENCE WILL HAVE FEWER THAN EIGHTY CHARACTERS"};
+        assertTrue(inputString[0].length()>80);
+        assertTrue(inputString[1].length()<80);
+
+        String expectedResult = String.format("%80s %-80s", "RANDOMLY GENERATED STRING TRIMMED TO 80 CHARACTERS", "HEXADECIMAL VALUE OF STRING LENGTH") + "\n" +
+                String.format("%80s %-80X", MyStringUtils.stringTrimmer(inputString[0],80) , MyStringUtils.stringTrimmer(inputString[0],80).length()) + "\n" +
+                String.format("%80s %-80X", inputString[1] , inputString[1].length());
+
+        assertTrue(MyStringUtils.formattedString(inputString).equals(expectedResult));
+
+    }
+
 }

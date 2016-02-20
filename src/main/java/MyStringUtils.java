@@ -1,4 +1,7 @@
+
 import com.sun.xml.internal.fastinfoset.util.CharArray;
+
+import java.util.Random;
 
 /**
  * Created by simonhamermesh on 2/19/16.
@@ -86,6 +89,44 @@ public class MyStringUtils {
         stringBuilder.deleteCharAt(stringBuilder.length()-1);
         returnStringArray = stringBuilder.toString().split(",");
         return returnStringArray;
+    }
+
+    public static String formattedString(String[] x){
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(
+                String.format("%80s %-80s", "RANDOMLY GENERATED STRING TRIMMED TO 80 CHARACTERS", "HEXADECIMAL VALUE OF STRING LENGTH"))
+                .append("\n");
+
+        for(String string : x){
+            String shortenedString = MyStringUtils.stringTrimmer(string,80);
+            stringBuilder.append(String.format("%80s %-80X", shortenedString ,shortenedString.length()));
+            stringBuilder.append("\n");
+        }
+
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        return stringBuilder.toString();
+    }
+
+    public static String stringTrimmer(String x,int y){
+        if(x.length()>y){return x.substring(0,y);}
+        return x;
+    }
+
+    public static String[] randomStringArrayGenerator(int x){
+
+        String[] randomStringArray = new String[x];
+        Random random = new Random();
+        for(int i=0; i<x;i++){
+
+            char[] randomCharArray = new char[random.nextInt(200)];
+            for(int j = 0; j<randomCharArray.length;j++){
+                randomCharArray[j] = (char)(random.nextInt(89)+32);
+            }
+
+            randomStringArray[i] = new String(randomCharArray);
+        }
+        return randomStringArray;
     }
 
 }
